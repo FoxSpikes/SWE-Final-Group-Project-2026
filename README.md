@@ -15,4 +15,3 @@
 ### Group Members who accepted Github invite as of 3/29/2026:
 -Jess Kinzle
 -Robbie Williams
--Nikole Sazoncika
