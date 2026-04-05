@@ -6,22 +6,23 @@ from .sandwiches import Sandwich
 
 
 class RecipeBase(BaseModel):
-    amount: int
+    recipe_requirement: int
 
 
 class RecipeCreate(RecipeBase):
-    sandwich_id: int
-    resource_id: int
+    menu_item_idn: int
+    resource_idn: int
 
 class RecipeUpdate(BaseModel):
-    sandwich_id: Optional[int] = None
-    resource_id: Optional[int] = None
-    amount: Optional[int] = None
+    menu_item_idn: Optional[int] = None
+    resource_idn: Optional[int] = None
+    recipe_requirement: Optional[int] = None
 
 class Recipe(RecipeBase):
-    id: int
-    sandwich: Sandwich = None
-    resource: Resource = None
+    menu_item_idn: int
+    resource_idn: int
+    resource: Optional[Resource] = None
+    sandwich: Optional[Sandwich] = None
 
     class ConfigDict:
         from_attributes = True

@@ -4,8 +4,9 @@ from pydantic import BaseModel
 
 
 class ResourceBase(BaseModel):
-    item: str
-    amount: int
+    resource_name: str
+    resource_amount: int
+    unit: str
 
 
 class ResourceCreate(ResourceBase):
@@ -13,12 +14,13 @@ class ResourceCreate(ResourceBase):
 
 
 class ResourceUpdate(BaseModel):
-    item: Optional[str] = None
-    amount: Optional[int] = None
+    resource_name: Optional[str] = None
+    resource_amount: Optional[int] = None
+    unit: Optional[str] = None
 
 
 class Resource(ResourceBase):
-    id: int
+    resource_idn: int
 
     class ConfigDict:
         from_attributes = True

@@ -5,22 +5,22 @@ from .sandwiches import Sandwich
 
 
 class OrderDetailBase(BaseModel):
-    amount: int
+    quantity: int
 
 
 class OrderDetailCreate(OrderDetailBase):
-    order_id: int
-    sandwich_id: int
+    order_idn: int
+    menu_item_idn: int
 
 class OrderDetailUpdate(BaseModel):
-    order_id: Optional[int] = None
-    sandwich_id: Optional[int] = None
-    amount: Optional[int] = None
+    order_idn: Optional[int] = None
+    menu_item_idn: Optional[int] = None
+    quantity: Optional[int] = None
 
 
 class OrderDetail(OrderDetailBase):
-    id: int
-    order_id: int
+    order_idn: int
+    menu_item_idn: int
     sandwich: Sandwich = None
 
     class ConfigDict:

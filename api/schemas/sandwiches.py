@@ -2,10 +2,13 @@ from datetime import datetime
 from typing import Optional
 from pydantic import BaseModel
 
+from .food_categories import FoodCategory
 
 class SandwichBase(BaseModel):
-    sandwich_name: str
+    dish_name: str
     price: float
+    category_idn: Optional[int] = None
+    calories: int
 
 
 class SandwichCreate(SandwichBase):
@@ -13,12 +16,15 @@ class SandwichCreate(SandwichBase):
 
 
 class SandwichUpdate(BaseModel):
-    sandwich_name: Optional[str] = None
+    dish_name: Optional[str] = None
     price: Optional[float] = None
+    category_idn: Optional[int] = None
+    calories: Optional[int] = None
 
 
 class Sandwich(SandwichBase):
-    id: int
+    menu_item_idn: int
+    category: Optional[FoodCategory] = None
 
     class ConfigDict:
         from_attributes = True
